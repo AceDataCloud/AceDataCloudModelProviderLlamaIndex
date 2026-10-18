@@ -1,23 +1,25 @@
-# Independent LLM distribution
+# Release and official discovery
 
-Package `llama-index-llms-acedatacloud`; class `llama_index.llms.acedatacloud.AceDataCloud`.
-Maintainer: Ace Data Cloud. Standard LlamaIndex namespace, explicit model/context,
-preset Ace endpoint, dedicated application token, no fallback, no default model.
+Source implementation is merged. Version: **0.1.0**.
 
-Official reference: existing OpenRouter wraps OpenAILike in its own integration package.
-https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/llms/llama-index-llms-openrouter
-Policy: https://github.com/run-llama/llama_index/blob/main/CONTRIBUTING.md
-New packages are independently maintained and published to PyPI, not added to monorepo.
+- GitHub release (wheel + sdist): https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/tag/v0.1.0
+- Installable wheel: https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/download/v0.1.0/llama_index_llms_acedatacloud-0.1.0-py3-none-any.whl
+- Package: `llama-index-llms-acedatacloud`.
 
-Release gate: human source review/merge authorization; existing authorized PyPI owner
-configures pending/new Trusted Publisher for `llama-index-llms-acedatacloud`, owner
-AceDataCloud, repo AceDataCloudModelProviderLlamaIndex, workflow publish.yml, environment pypi.
-Then approve/tag a real release, verify the public wheel and a clean install.
-No secrets, identities, terms acceptance or production settings are created here.
+The existing authorized organization `PYPI_TOKEN` is available; no new account or
+Trusted Publisher setup is required for the chosen token publication path. PyPI
+new-project creation is temporarily limited for both the account and source IP.
+The observed shared reset is 2026-10-20 03:23:23 Asia/Shanghai; publication should
+resume only after the reset and a registry readback. No identity or IP workaround.
 
-Official docs discovery proposal: add an externally maintained Ace Data Cloud entry to
-Available LLM integrations, linking actual source/release status. Keep it a draft until
-publication gates are met; no default inclusion or endorsement is claimed.
+A published GitHub release builds and attaches the wheel/sdist independently.
+The maintainer then uses workflow_dispatch on `publish.yml` with the existing
+tag `v0.1.0` to publish the same source after registry quota is available.
+Read the registry version/digests first; never replace immutable release files.
 
-Real GUI/token screenshot collection belongs to the coordinating UI owner. The account
-setup screenshots in README are existing redacted real images, not a new LlamaIndex GUI.
+Official discovery contribution: https://github.com/run-llama/llama_index/pull/23574 .
+It is not accepted or merged yet. New integration packages stay independent under
+https://github.com/run-llama/llama_index/blob/main/CONTRIBUTING.md .
+GitHub installation, PyPI publication, official listing, native real-task validation
+and billing/acquisition are separate stages. The release is not official endorsement.
+No paid test, new account, terms acceptance or permission expansion is part of this workflow.

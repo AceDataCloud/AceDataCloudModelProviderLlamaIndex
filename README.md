@@ -10,11 +10,13 @@ This is an independently maintained integration, not default LlamaIndex inclusio
 ## 1. Install the integration
 
 Standard package: `llama-index-llms-acedatacloud`; namespace `llama_index.llms.acedatacloud`.
-**Source PR stage: not published to PyPI or listed in the official LLM directory yet.**
-For source review (Python 3.10+):
+**Source is merged; release distribution: [GitHub v0.1.0](https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/tag/v0.1.0).**
+PyPI publication is pending the shared new-project quota; an official LlamaIndex
+listing is not yet approved. Install the wheel from the GitHub release after
+checking that the release assets are present:
 
 ```bash
-pip install "llama-index-llms-acedatacloud @ git+https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex.git@codex/native-ace-llm"
+python -m pip install "https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/download/v0.1.0/llama_index_llms_acedatacloud-0.1.0-py3-none-any.whl"
 ```
 
 It reuses the official `llama-index-llms-openai-like` implementation for chat,
@@ -113,7 +115,7 @@ No paid chat or production model quality, billing, official listing or revenue i
 
 | Problem | Check |
 |---|---|
-| Package absent on PyPI | Initial publication is pending; use the review branch. |
+| Package absent on PyPI | Use the GitHub release wheel while PyPI quota is pending. |
 | Missing token / 401 | Use the full raw Ace application token and check expiration/access. |
 | 403 / insufficient balance | Check model entitlement and budget, not retries. |
 | 429 / ambiguous network error | Automatic retries are off; inspect usage before sending again. |
@@ -122,10 +124,10 @@ No paid chat or production model quality, billing, official listing or revenue i
 
 ## Release and official discovery
 
-The prepared PyPI Trusted Publishing workflow needs project/publisher setup by an
-authorized existing PyPI owner: repository `AceDataCloudModelProviderLlamaIndex`,
-workflow `publish.yml`, environment `pypi`. Source review and explicit merge/release
-approval remain gates. See [distribution handoff](docs/distribution.md).
+The existing authorized organization publisher is reused; no new account or
+Trusted Publisher setup is required for this token path. PyPI publication waits
+for the shared new-project quota; GitHub release assets remain independently
+installable. See [distribution handoff](docs/distribution.md).
 Official docs/default inclusion and real paid call/billing must be verified separately.
 
 MIT. Maintained by Ace Data Cloud.
