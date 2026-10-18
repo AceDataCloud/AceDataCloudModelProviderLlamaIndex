@@ -4,14 +4,14 @@
 
 包名 `llama-index-llms-acedatacloud`，导入 `llama_index.llms.acedatacloud.AceDataCloud`。
 独立维护方为 Ace Data Cloud；地址已预设，用户不必手填 OpenAI base URL。
-当前为源码 PR，尚未发布 PyPI，官方文档收录和默认内置均未证明。
+源码已合并，GitHub v0.1.0 发行入口：https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/tag/v0.1.0 。PyPI受共享新项目额度限制，官方收录和默认内置均未证明。
 
 ## 1. 安装
 
-Python 3.10+，审查期从分支安装：
+Python 3.10+，从版本化GitHub wheel安装，先核发行工件已存在：
 
 ```bash
-pip install "llama-index-llms-acedatacloud @ git+https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex.git@codex/native-ace-llm"
+python -m pip install "https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/download/v0.1.0/llama_index_llms_acedatacloud-0.1.0-py3-none-any.whl"
 ```
 
 ## 2. 注册、General application 和专用 Key
@@ -65,5 +65,4 @@ python -m build
 ```
 
 模拟 HTTP 和假 Token 验证真实原生类、聊天和流式协议；不证明真实质量、消费或营收。
-发包工作流已准备，仍需已有 PyPI 所有者配置 Trusted Publisher（本仓、`publish.yml`、`pypi`），
-源码合并/发行和官方收录分别留证。不创建新身份、不自动接受协议。
+现有组织PYPI_TOKEN已确认可用，不需要新账号或另配Trusted Publisher。当前PyPI门槛为共享账号/IP新建项目额度，已知重置时间2026-10-20 03:23:23（北京时间）；发行GitHub wheel与它分开。管理员届时先读registry，再对既有v0.1.0标签手动执行publish.yml发布，不换身份/IP。官方收录单独验收；不创建新身份、不自动接受协议。
