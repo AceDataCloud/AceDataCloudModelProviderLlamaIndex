@@ -1,8 +1,9 @@
 """Read-only installed native package checks; never execute a model or media tool."""
+
 import importlib
-from importlib.metadata import version
 import json
 import os
+from importlib.metadata import version
 from pathlib import Path
 
 PACKAGES = {
@@ -11,7 +12,11 @@ PACKAGES = {
     "llama-index-tools-seedance-acedatacloud": ("llama_index.tools.seedance_acedatacloud", "SeedanceToolSpec", 3),
     "llama-index-tools-happyhorse-acedatacloud": ("llama_index.tools.happyhorse_acedatacloud", "HappyHorseToolSpec", 3),
     "llama-index-tools-gpt-image-acedatacloud": ("llama_index.tools.gpt_image_acedatacloud", "GPTImageToolSpec", 3),
-    "llama-index-tools-nano-banana-acedatacloud": ("llama_index.tools.nano_banana_acedatacloud", "NanoBananaToolSpec", 3),
+    "llama-index-tools-nano-banana-acedatacloud": (
+        "llama_index.tools.nano_banana_acedatacloud",
+        "NanoBananaToolSpec",
+        3,
+    ),
 }
 package = os.environ["PACKAGE"]
 expected_version = os.environ["VERSION"]
@@ -22,6 +27,7 @@ assert "site-packages" in module.__file__
 cls = getattr(module, class_name)
 if count:
     import asyncio
+
     instance = cls(api_token="schema-only-not-a-real-key")
     try:
         tools = instance.to_tool_list()
@@ -37,10 +43,20 @@ else:
     assert instance.class_name() == "AceDataCloud_LLM"
     assert not instance.metadata.is_function_calling_model
     assert "schema-only-not-a-real-key" not in instance.model_dump_json()
-    result = {"native_class": instance.class_name(), "metadata": instance.metadata.model_dump(),
-              "model_list": "No network discovery or hardcoded list; caller explicitly selects an available model."}
-result.update({"package": package, "version": version(package), "loaded_from": module.__file__,
-               "installation": "ordinary package-name pip install from official https://pypi.org/simple",
-               "api_key": "dummy only; no API/LLM/media calls", "paid_generation": False})
+    result = {
+        "native_class": instance.class_name(),
+        "metadata": instance.metadata.model_dump(),
+        "model_list": "No network discovery or hardcoded list; caller explicitly selects an available model.",
+    }
+result.update(
+    {
+        "package": package,
+        "version": version(package),
+        "loaded_from": module.__file__,
+        "installation": "ordinary package-name pip install from official https://pypi.org/simple",
+        "api_key": "dummy only; no API/LLM/media calls",
+        "paid_generation": False,
+    }
+)
 Path("consumer.json").write_text(json.dumps(result, indent=2) + "\n")
 print(json.dumps(result, indent=2))
