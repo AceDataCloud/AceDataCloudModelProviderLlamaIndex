@@ -1,0 +1,49 @@
+name: Verify published PyPI native package
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Exact existing native package to verify without API calls
+        required: true
+        type: choice
+        options:
+          - llama-index-llms-acedatacloud
+          - llama-index-tools-suno-acedatacloud
+          - llama-index-tools-seedance-acedatacloud
+          - llama-index-tools-happyhorse-acedatacloud
+          - llama-index-tools-gpt-image-acedatacloud
+          - llama-index-tools-nano-banana-acedatacloud
+      version:
+        description: Exact published version
+        required: true
+        default: "0.1.0"
+        type: string
+permissions:
+  contents: read
+jobs:
+  consumer:
+    runs-on: ubuntu-latest
+    env:
+      PACKAGE: ${{ inputs.package }}
+      VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install only the official published version in a fresh consumer environment
+        run: |
+          python -m venv /tmp/native-pypi-consumer
+          /tmp/native-pypi-consumer/bin/pip install --index-url https://pypi.org/simple "$PACKAGE==$VERSION"
+      - name: Inspect native LLM metadata or tool schemas without executing any tool
+        run: |
+          cd /tmp
+          /tmp/native-pypi-consumer/bin/python "$GITHUB_WORKSPACE/scripts/verify_published.py"
+          /tmp/native-pypi-consumer/bin/pip check
+          /tmp/native-pypi-consumer/bin/pip freeze > freeze.txt
+      - uses: actions/upload-artifact@v7
+        with:
+          name: official-pypi-consumer
+          path: |
+            /tmp/consumer.json
+            /tmp/freeze.txt
