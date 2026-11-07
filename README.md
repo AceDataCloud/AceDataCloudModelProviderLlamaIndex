@@ -1,6 +1,6 @@
 # Ace Data Cloud LLM for LlamaIndex
 
-[简体中文](readme/README_zh_Hans.md) · [Models and current pricing](https://platform.acedata.cloud/models?utm_source=llamaindex&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_pricing)
+[简体中文](readme/README_zh_Hans.md) · [Models and current pricing](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_pricing)
 
 A native `AceDataCloud` LlamaIndex class maintained by Ace Data Cloud. Import it,
 choose your model and context size, and use it as `Settings.llm` or an agent's LLM.
@@ -10,14 +10,19 @@ This is an independently maintained integration, not default LlamaIndex inclusio
 ## 1. Install the integration
 
 Standard package: `llama-index-llms-acedatacloud`; namespace `llama_index.llms.acedatacloud`.
-**Source is merged; release distribution: [GitHub v0.1.0](https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/tag/v0.1.0).**
-PyPI publication is pending the shared new-project quota; an official LlamaIndex
-listing is not yet approved. Install the wheel from the GitHub release after
-checking that the release assets are present:
+**Published on PyPI: [0.1.0](https://pypi.org/project/llama-index-llms-acedatacloud/0.1.0/).**
+Use the ordinary package name; the [GitHub v0.1.0 release](https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/tag/v0.1.0)
+provides the same wheel and source archive as an alternate distribution:
 
 ```bash
-python -m pip install "https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/download/v0.1.0/llama_index_llms_acedatacloud-0.1.0-py3-none-any.whl"
+python -m pip install "llama-index-llms-acedatacloud==0.1.0"
 ```
+
+This install path was verified from the official PyPI index in a fresh Linux
+consumer on 2026-10-20; its native class metadata and `pip check` passed without
+any model request. The public version and both release digests were read back
+again on 2026-11-07. Publication is independent of official LlamaIndex listing,
+default inclusion, supported-model quality or billing validation.
 
 It reuses the official `llama-index-llms-openai-like` implementation for chat,
 completion, streaming and tool-call protocols, following the existing OpenRouter
@@ -25,10 +30,10 @@ integration pattern. No shared Ace SDK/MCP code is changed. No fallback model is
 
 ## 2. Register and copy an application API Token
 
-1. [Register or sign in](https://platform.acedata.cloud?utm_source=llamaindex&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_register) and open [Applications](https://platform.acedata.cloud/console/applications?utm_source=llamaindex&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_api_key).
+1. [Register or sign in](https://platform.acedata.cloud?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_register) and open [Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_api_key).
 2. Find **General application**; if absent, click **Initialize General Application**.
    General keys have only your account's permitted services; dedicated keys have
-   only their application's service. Check selected model access and [price/balance](https://platform.acedata.cloud/models?utm_source=llamaindex&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_balance).
+   only their application's service. Check selected model access and [price/balance](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_balance).
 3. Copy the API Key or choose **Manage Keys → Create** for a separate `LlamaIndex LLM` key.
 
 ![Real Ace console: copy the redacted application key or manage keys](https://raw.githubusercontent.com/AceDataCloud/SunoDify/8d3d03570e73324220f111f7fe343da0792a8071/_assets/tutorial/get-api-key-en.png)
@@ -115,7 +120,7 @@ No paid chat or production model quality, billing, official listing or revenue i
 
 | Problem | Check |
 |---|---|
-| Package absent on PyPI | Use the GitHub release wheel while PyPI quota is pending. |
+| Package installation fails | Use the exact published package name above; check Python 3.10+ and network access to PyPI/files.pythonhosted.org. The GitHub wheel is an alternative. |
 | Missing token / 401 | Use the full raw Ace application token and check expiration/access. |
 | 403 / insufficient balance | Check model entitlement and budget, not retries. |
 | 429 / ambiguous network error | Automatic retries are off; inspect usage before sending again. |
@@ -124,10 +129,13 @@ No paid chat or production model quality, billing, official listing or revenue i
 
 ## Release and official discovery
 
-The existing authorized organization publisher is reused; no new account or
-Trusted Publisher setup is required for this token path. PyPI publication waits
-for the shared new-project quota; GitHub release assets remain independently
-installable. See [distribution handoff](docs/distribution.md).
+The existing authorized publisher already published version 0.1.0; there is no
+new-project quota blocker for this Provider's existing version. Future versions
+still require the normal source/release process. The five independent media tools
+have separate registry/publication status and are not implied by this LLM package.
+See [distribution handoff](docs/distribution.md). The published 0.1.0 wheel/sdist
+and PyPI long description are immutable snapshots; this current repository README
+corrects their historical pre-publication wording without replacing those files.
 Official docs/default inclusion and real paid call/billing must be verified separately.
 
 MIT. Maintained by Ace Data Cloud.

@@ -1,22 +1,24 @@
 # Ace Data Cloud：LlamaIndex 原生 LLM 类
 
-[English](../README.md) · [当前模型与价格](https://platform.acedata.cloud/models?utm_source=llamaindex&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_pricing_zh)
+[English](../README.md) · [当前模型与价格](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_pricing_zh)
 
 包名 `llama-index-llms-acedatacloud`，导入 `llama_index.llms.acedatacloud.AceDataCloud`。
 独立维护方为 Ace Data Cloud；地址已预设，用户不必手填 OpenAI base URL。
-源码已合并，GitHub v0.1.0 发行入口：https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/tag/v0.1.0 。PyPI受共享新项目额度限制，官方收录和默认内置均未证明。
+**PyPI 0.1.0 已发布**：[正式页面](https://pypi.org/project/llama-index-llms-acedatacloud/0.1.0/)。
+2026-10-20 已用全新 Linux 环境从官方 PyPI 普通包名安装并验原生类元数据和依赖检查；
+2026-11-07 再核版本与双工件哈希一致，无模型请求。官方收录、默认内置和模型真实质量仍未证明。
 
 ## 1. 安装
 
-Python 3.10+，从版本化GitHub wheel安装，先核发行工件已存在：
+Python 3.10+，普通包名安装；[GitHub v0.1.0](https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/tag/v0.1.0) 提供同字节 wheel/sdist 备用：
 
 ```bash
-python -m pip install "https://github.com/AceDataCloud/AceDataCloudModelProviderLlamaIndex/releases/download/v0.1.0/llama_index_llms_acedatacloud-0.1.0-py3-none-any.whl"
+python -m pip install "llama-index-llms-acedatacloud==0.1.0"
 ```
 
 ## 2. 注册、General application 和专用 Key
 
-[注册/登录](https://platform.acedata.cloud?utm_source=llamaindex&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_register_zh)后进入[Applications](https://platform.acedata.cloud/console/applications?utm_source=llamaindex&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_api_key_zh)。
+[注册/登录](https://platform.acedata.cloud?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_register_zh)后进入[Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_api_key_zh)。
 找到 **General application**，没有时点 **Initialize General Application**。
 核当前模型权限、价格及余额，复制 API Key 或 **Manage Keys → Create** 创建 `LlamaIndex LLM` 专用 Key。
 
@@ -65,4 +67,8 @@ python -m build
 ```
 
 模拟 HTTP 和假 Token 验证真实原生类、聊天和流式协议；不证明真实质量、消费或营收。
-现有组织PYPI_TOKEN已确认可用，不需要新账号或另配Trusted Publisher。当前PyPI门槛为共享账号/IP新建项目额度，已知重置时间2026-10-20 03:23:23（北京时间）；发行GitHub wheel与它分开。管理员届时先读registry，再对既有v0.1.0标签手动执行publish.yml发布，不换身份/IP。官方收录单独验收；不创建新身份、不自动接受协议。
+现有发布身份已完成本 Provider 的 PyPI 0.1.0 发布，不需要为安装该版本新注册或重配 Token。
+五个媒体工具包的 registry 状态单独验收，不由本 Provider 发包推定完成。
+已发行 wheel/sdist 与 PyPI 长描述保留原始快照，不覆盖文件；当前仓库 README 修正历史“未发布”字样。
+若安装失败，先核 Python3.10+ 和官方 PyPI/CDN 网络；没有新项目配额阻挡本已存在版本下载的证据。
+后续版本按正常源码/发行流程，官方收录单独验收，不自动接受新协议。
