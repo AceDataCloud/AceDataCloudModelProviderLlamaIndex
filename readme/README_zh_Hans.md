@@ -67,6 +67,7 @@ python -m build
 ```
 
 模拟 HTTP 和假 Token 验证真实原生类、聊天和流式协议；不证明真实质量、消费或营收。
+离线示例显式使用内存 HTTP 传输；协议测试同时拒绝 DNS 与 socket 连接，防止 SDK 更换默认传输后发出测试请求。
 现有发布身份已完成本 Provider 的 PyPI 0.1.0 发布，不需要为安装该版本新注册或重配 Token。
 五个媒体工具包的 registry 状态单独验收，不由本 Provider 发包推定完成。
 已发行 wheel/sdist 与 PyPI 长描述保留原始快照，不覆盖文件；当前仓库 README 修正历史“未发布”字样。

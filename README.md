@@ -116,6 +116,9 @@ python -m build
 
 The consumer uses mocked HTTP and a dummy token, and clearly labels output
 `synthetic-offline`. CI builds the wheel and installs it outside the source tree.
+The offline example uses an explicit in-memory HTTP transport. Protocol tests also
+reject DNS and socket connections, so an SDK transport change cannot send a test request.
+
 No paid chat or production model quality, billing, official listing or revenue is claimed.
 
 | Problem | Check |
