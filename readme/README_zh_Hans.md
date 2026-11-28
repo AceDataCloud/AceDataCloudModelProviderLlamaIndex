@@ -19,7 +19,7 @@ python -m pip install "llama-index-llms-acedatacloud==0.1.0"
 ## 2. 注册、General application 和专用 Key
 
 [注册/登录](https://platform.acedata.cloud?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_register_zh)后进入[Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_api_key_zh)。
-找到 **General application**，没有时点 **Initialize General Application**。
+找到 **General application**。
 核当前模型权限、价格及余额，复制 API Key 或 **Manage Keys → Create** 创建 `LlamaIndex LLM` 专用 Key。
 
 ![真实 Ace 控制台：复制或管理已遮挡的 Key](https://raw.githubusercontent.com/AceDataCloud/SunoDify/8d3d03570e73324220f111f7fe343da0792a8071/_assets/tutorial/get-api-key-en.png)
