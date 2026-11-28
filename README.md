@@ -31,7 +31,7 @@ integration pattern. No shared Ace SDK/MCP code is changed. No fallback model is
 ## 2. Register and copy an application API Token
 
 1. [Register or sign in](https://platform.acedata.cloud?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_register) and open [Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_api_key).
-2. Find **General application**; if absent, click **Initialize General Application**.
+2. Find **General application**.
    General keys have only your account's permitted services; dedicated keys have
    only their application's service. Check selected model access and [price/balance](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=ace_llm_llamaindex_balance).
 3. Copy the API Key or choose **Manage Keys → Create** for a separate `LlamaIndex LLM` key.
